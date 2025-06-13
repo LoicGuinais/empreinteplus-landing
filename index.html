@@ -4,10 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Empreinte Plus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
+  <div class="toggle-container">
+    <label class="switch">
+      <input type="checkbox" id="theme-toggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="container fade-in">
     <header>
       <h1>Empreinte Plus</h1>
       <p>Une plateforme intelligente d’analyse carbone pour les entreprises en transition.</p>
@@ -18,8 +26,17 @@
     </main>
 
     <footer>
-      <p>© 2025 Empreinte Plus · Contact : empreinteplus@outlook.com</p>
+      <p>© 2025 Empreinte Plus · Contact : contact@empreinteplus.com</p>
     </footer>
   </div>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    toggle.addEventListener("change", () => {
+      body.classList.toggle("light-mode");
+    });
+  </script>
 </body>
 </html>
