@@ -5,46 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Empreinte Plus</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>🍃</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>🍃</text></svg>">
   <style>
     body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .fade-in { opacity: 0; animation: fadeIn 1.2s ease-out forwards; }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
   </style>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REBGWCM1G6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date()); gtag('config', 'G-REBGWCM1G6');
-  </script>
 </head>
 
-<body class="bg-gradient-to-br from-white via-gray-100 to-white text-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-black dark:text-gray-100 transition-colors duration-500">
+<body class="bg-gradient-to-br from-white via-gray-100 to-white text-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-black dark:text-white transition-colors duration-500">
 
-  <!-- Theme toggle button -->
+  <!-- Theme Toggle -->
   <div class="absolute top-5 right-5 z-50">
     <button id="theme-toggle" class="text-xl text-yellow-600 dark:text-white hover:scale-110 transition">
       <span id="theme-icon">☀️</span>
     </button>
   </div>
 
-  <!-- Main Content -->
-  <div class="max-w-5xl mx-auto pt-32 px-6 pb-20 space-y-20">
+  <!-- HERO -->
+  <section class="h-screen flex flex-col justify-center items-center text-center px-6">
+    <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 fade-in">
+      L’IA carbone pensée<br>pour la vitesse et la traçabilité.
+    </h1>
+    <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-xl fade-in delay-1">
+      Empreinte Plus vous aide à analyser et documenter votre impact carbone, automatiquement.
+    </p>
+    <a href="https://app.empreinteplus.com"
+       class="mt-8 px-8 py-3 bg-green-500 hover:bg-green-600 text-white text-lg font-semibold rounded-lg shadow transition fade-in delay-2">
+      🚀 Accéder à l'application
+    </a>
+  </section>
 
-    <!-- Hero -->
-    <header class="text-center fade-in">
-      <h1 class="text-4xl sm:text-5xl font-bold text-green-600 dark:text-green-400 mb-4">Empreinte Plus</h1>
-      <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300">L'IA carbone, pensée pour la sécurité et la traçabilité</p>
-      <a href="https://app.empreinteplus.com"
-         class="inline-block mt-6 px-8 py-3 rounded-lg text-lg font-semibold bg-green-500 hover:bg-green-600 text-white shadow transition-all duration-200">
-        🚀 Accéder à l'application
-      </a>
-    </header>
+  <!-- MAIN CONTENT -->
+  <main class="max-w-5xl mx-auto px-6 space-y-20 pb-32 fade-in">
 
-    <!-- Pourquoi Empreinte Plus -->
-    <section id="pourquoi" class="fade-in">
+    <!-- Pourquoi -->
+    <section id="pourquoi">
       <h2 class="text-2xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">Pourquoi Empreinte Plus ?</h2>
       <div class="grid gap-6 sm:grid-cols-2 text-base text-gray-800 dark:text-gray-100">
         <div>⚡ <strong>Analyse à la demande</strong><br>Lancez des calculs carbone instantanés, sans attendre un expert.</div>
@@ -57,7 +56,7 @@
     </section>
 
     <!-- Pour qui -->
-    <section id="pour-qui" class="fade-in">
+    <section id="pour-qui">
       <h2 class="text-2xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">À qui s’adresse Empreinte Plus ?</h2>
       <div class="grid gap-4 sm:grid-cols-2 text-base">
         <div>👨‍💼 <strong>Experts-comptables</strong><br>Proposez un service carbone automatisé à vos clients.</div>
@@ -68,8 +67,8 @@
       </div>
     </section>
 
-    <!-- Bloc Exemples -->
-    <section id="exemples" class="fade-in">
+    <!-- Exemples -->
+    <section id="exemples">
       <h2 class="text-2xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">📦 Exemples de calculs carbone</h2>
       <div class="bg-black text-gray-100 rounded-xl p-6 border border-gray-700 shadow-md space-y-6 text-sm">
         <div>
@@ -99,16 +98,20 @@
         </a>
       </p>
     </footer>
-  </div>
+  </main>
 
   <!-- 🍪 Cookie Banner -->
-  <div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-gray-900 text-white text-sm px-4 py-3 flex items-center justify-between z-50 shadow-lg">
-    <p>🍪 Ce site utilise des cookies à des fins de mesure d’audience (Google Analytics).</p>
-    <button onclick="document.getElementById('cookie-banner').style.display='none'" class="ml-4 bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded transition">Ok</button>
+  <div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-gray-900 text-white text-sm px-4 py-3 flex flex-col sm:flex-row items-center justify-between z-50 shadow-lg hidden">
+    <p class="mb-2 sm:mb-0">
+      🍪 Ce site utilise des cookies à des fins de mesure d’audience (Google Analytics).
+      <a href="/politique-confidentialite.html" target="_blank" class="underline ml-1 text-green-400 hover:text-green-300">Politique de confidentialité</a>
+    </p>
+    <button id="cookie-accept" class="bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded transition">Ok</button>
   </div>
 
-  <!-- Theme toggle logic -->
+  <!-- Scripts -->
   <script>
+    // Theme Toggle
     const toggle = document.getElementById("theme-toggle");
     const html = document.documentElement;
     const icon = document.getElementById("theme-icon");
@@ -118,6 +121,17 @@
       isDark = !isDark;
       html.classList.toggle("dark", isDark);
       icon.textContent = isDark ? "🌙" : "☀️";
+    });
+
+    // Cookie Banner
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    if (!localStorage.getItem('cookiesAccepted')) {
+      banner.classList.remove('hidden');
+    }
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookiesAccepted', 'true');
+      banner.classList.add('hidden');
     });
   </script>
 </body>
