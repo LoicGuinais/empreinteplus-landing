@@ -21,20 +21,16 @@
   </script>
 </head>
 
-<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
+<body class="bg-gradient-to-br from-white via-gray-100 to-white text-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-black dark:text-gray-100 transition-colors duration-500">
 
-  <!-- Sticky Nav -->
-  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur bg-white/70 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700 px-6 py-3 flex justify-between items-center shadow-sm">
-    <span class="font-bold text-green-600 dark:text-green-400">🍃 Empreinte Plus</span>
-    <div class="space-x-4 text-sm font-medium">
-      <a href="#pourquoi" class="hover:text-green-500 transition">Pourquoi</a>
-      <a href="#pour-qui" class="hover:text-green-500 transition">Pour qui</a>
-      <a href="#exemples" class="hover:text-green-500 transition">Exemples</a>
-      <button id="theme-toggle" class="ml-4 text-lg">🌙</button>
-    </div>
-  </nav>
+  <!-- Theme toggle button -->
+  <div class="absolute top-5 right-5 z-50">
+    <button id="theme-toggle" class="text-xl text-yellow-600 dark:text-white hover:scale-110 transition">
+      <span id="theme-icon">☀️</span>
+    </button>
+  </div>
 
-  <!-- Main Container -->
+  <!-- Main Content -->
   <div class="max-w-5xl mx-auto pt-32 px-6 pb-20 space-y-20">
 
     <!-- Hero -->
@@ -60,7 +56,7 @@
       </div>
     </section>
 
-    <!-- À qui s’adresse -->
+    <!-- Pour qui -->
     <section id="pour-qui" class="fade-in">
       <h2 class="text-2xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">À qui s’adresse Empreinte Plus ?</h2>
       <div class="grid gap-4 sm:grid-cols-2 text-base">
@@ -105,16 +101,23 @@
     </footer>
   </div>
 
-  <!-- Theme script -->
+  <!-- 🍪 Cookie Banner -->
+  <div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-gray-900 text-white text-sm px-4 py-3 flex items-center justify-between z-50 shadow-lg">
+    <p>🍪 Ce site utilise des cookies à des fins de mesure d’audience (Google Analytics).</p>
+    <button onclick="document.getElementById('cookie-banner').style.display='none'" class="ml-4 bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded transition">Ok</button>
+  </div>
+
+  <!-- Theme toggle logic -->
   <script>
     const toggle = document.getElementById("theme-toggle");
     const html = document.documentElement;
+    const icon = document.getElementById("theme-icon");
     let isDark = false;
 
     toggle.addEventListener("click", () => {
       isDark = !isDark;
       html.classList.toggle("dark", isDark);
-      toggle.textContent = isDark ? "🌙" : "☀️";
+      icon.textContent = isDark ? "🌙" : "☀️";
     });
   </script>
 </body>
