@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Empreinte Plus</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>🍃</text></svg>">
   <style>
@@ -40,11 +39,6 @@
     </a>
   </section>
 
-  <!-- 🌐 Animated Network -->
-  <section class="my-20 flex justify-center fade-in">
-    <div id="network-animation" class="w-full max-w-md h-[300px]"></div>
-  </section>
-
   <!-- MAIN CONTENT -->
   <main class="max-w-5xl mx-auto px-6 space-y-20 pb-32 fade-in">
 
@@ -73,21 +67,31 @@
       </div>
     </section>
 
-    <!-- Exemples -->
-    <section id="exemples">
+    <!-- Exemples scrollable cards -->
+    <section id="exemples" class="fade-in">
       <h2 class="text-2xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">📦 Exemples de calculs carbone</h2>
-      <div class="bg-black text-gray-100 rounded-xl p-6 border border-gray-700 shadow-md space-y-6 text-sm">
-        <div>
-          <p><strong>“Billet aller-retour TER Paris Lyon”</strong></p>
-          <p>xx tCO₂e<br>x% incertitude<br>Transport ferroviaire</p>
-        </div>
-        <div>
-          <p><strong>« HP Probook Q4 * 5 »</strong></p>
-          <p>xx tCO₂e<br>x% incertitude<br>Transport maritime</p>
-        </div>
-        <div>
-          <p><strong>« Chaises réu * 4 (invoice 78339) »</strong></p>
-          <p>xx tCO₂e<br>x% incertitude<br>Mobilier & logistique</p>
+
+      <div class="overflow-x-auto scroll-smooth">
+        <div class="flex space-x-4 pb-2 snap-x snap-mandatory">
+          
+          <!-- Card 1 -->
+          <div class="min-w-[250px] bg-black text-gray-100 rounded-xl p-4 border border-gray-700 shadow-md flex-shrink-0 snap-center">
+            <p class="font-semibold mb-2">“Billet aller-retour TER Paris Lyon”</p>
+            <p>xx tCO₂e<br>x% incertitude<br>Transport ferroviaire</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="min-w-[250px] bg-black text-gray-100 rounded-xl p-4 border border-gray-700 shadow-md flex-shrink-0 snap-center">
+            <p class="font-semibold mb-2">« HP Probook Q4 * 5 »</p>
+            <p>xx tCO₂e<br>x% incertitude<br>Transport maritime</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="min-w-[250px] bg-black text-gray-100 rounded-xl p-4 border border-gray-700 shadow-md flex-shrink-0 snap-center">
+            <p class="font-semibold mb-2">« Chaises réu * 4 (invoice 78339) »</p>
+            <p>xx tCO₂e<br>x% incertitude<br>Mobilier & logistique</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -138,15 +142,6 @@
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem('cookiesAccepted', 'true');
       banner.classList.add('hidden');
-    });
-
-    // Lottie animation
-    lottie.loadAnimation({
-      container: document.getElementById('network-animation'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'https://assets4.lottiefiles.com/packages/lf20_s3hvcjrx.json'
     });
   </script>
 </body>
