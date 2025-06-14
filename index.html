@@ -1,58 +1,79 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Empreinte Plus</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>🍃</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            fade: 'fadeIn 1.2s ease forwards'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REBGWCM1G6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REBGWCM1G6');
+  </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REBGWCM1G6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-REBGWCM1G6');
-</script>
-<body>
-  <div class="toggle-container">
-    <label class="switch">
-      <input type="checkbox" id="theme-toggle">
-      <span class="slider"></span>
+<body class="bg-gray-900 text-gray-100 font-inter transition-colors duration-500">
+  <div class="absolute top-4 right-4">
+    <label class="relative inline-flex items-center cursor-pointer">
+      <input type="checkbox" id="theme-toggle" class="sr-only peer">
+      <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:bg-green-500 transition-all duration-300"></div>
+      <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-all duration-300 peer-checked:translate-x-full"></div>
     </label>
   </div>
 
-  <div class="container fade-in">
-    <header>
-      <h1>Empreinte Plus</h1>
-      <p>L'IA carbone, pensée pour la sécurité et la traçabilité</p>
+  <div class="max-w-xl mx-auto mt-24 p-8 bg-gray-800 rounded-xl shadow-xl text-center animate-fade transition-colors duration-500 dark:bg-gray-800 light:bg-white">
+    <header class="mb-6">
+      <h1 class="text-4xl font-bold text-green-400 dark:text-green-400">Empreinte Plus</h1>
+      <p class="text-lg text-gray-300 dark:text-gray-300 mt-2">L'IA carbone, pensée pour la sécurité et la traçabilité</p>
     </header>
 
     <main>
-      <a href="https://app.empreinteplus.com" class="cta-button">Accéder à l'application</a>
+      <a href="https://app.empreinteplus.com" class="inline-block mt-6 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200">Accéder à l'application</a>
     </main>
 
-<footer>
-  <p>© 2025 Empreinte Plus · Contact : contact@empreinteplus.com</p>
-  <p>
-    <a href="https://www.linkedin.com/company/empreinteplus/" target="_blank" class="social-link">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="social-icon">
-      Suivez-nous sur LinkedIn
-    </a>
-  </p>
-</footer>
-
+    <footer class="mt-10 text-sm text-gray-400">
+      <p>© 2025 Empreinte Plus · Contact : contact@empreinteplus.com</p>
+      <p class="mt-2">
+        <a href="https://www.linkedin.com/company/empreinteplus/" target="_blank" class="inline-flex items-center gap-2 text-gray-300 hover:text-blue-500 transition">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-5 h-5 filter invert dark:invert-0">
+          Suivez-nous sur LinkedIn
+        </a>
+      </p>
+    </footer>
   </div>
 
   <script>
     const toggle = document.getElementById("theme-toggle");
-    const body = document.body;
+    const html = document.documentElement;
 
     toggle.addEventListener("change", () => {
-      body.classList.toggle("light-mode");
+      html.classList.toggle("dark");
     });
   </script>
 </body>
