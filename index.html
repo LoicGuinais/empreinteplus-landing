@@ -23,20 +23,23 @@
 
 <body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-100 transition-colors duration-500">
 
-  <!-- Toggle -->
+  <!-- Theme Toggle -->
   <div class="absolute top-5 right-5">
     <button id="theme-toggle" class="text-xl text-yellow-400 dark:text-white hover:scale-110 transition">
       <span id="theme-icon">🌙</span>
     </button>
   </div>
 
-  <!-- Main Card -->
-  <div class="max-w-2xl mx-auto mt-28 p-10 rounded-2xl shadow-2xl fade-in bg-gray-800 dark:bg-gray-800 transition-colors duration-500 text-center">
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto mt-28 p-10 rounded-2xl shadow-2xl fade-in bg-gray-800 transition-colors duration-500 text-center">
+
+    <!-- Hero Section -->
     <header class="mb-8">
       <h1 class="text-4xl sm:text-5xl font-bold text-green-400 mb-3">Empreinte Plus</h1>
       <p class="text-lg sm:text-xl text-gray-300">L'IA carbone, pensée pour la sécurité et la traçabilité</p>
     </header>
 
+    <!-- CTA -->
     <main>
       <a href="https://app.empreinteplus.com"
          class="inline-block mt-6 px-7 py-3 rounded-lg text-lg font-semibold bg-green-500 hover:bg-green-600 text-white shadow-md hover:shadow-lg transition-all duration-200">
@@ -44,6 +47,59 @@
       </a>
     </main>
 
+    <!-- Pourquoi Section -->
+    <section class="mt-16 text-left text-gray-100">
+      <h2 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Pourquoi Empreinte Plus ?</h2>
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div>⚡ <span class="font-semibold">Analyse à la demande</span><br>Lancez des calculs carbone instantanés, sans attendre un expert.</div>
+        <div>📊 <span class="font-semibold">Résultats traçables</span><br>Hypothèses, facteurs et incertitudes clairement documentés.</div>
+        <div>💰 <span class="font-semibold">Moins de coûts, plus d’impact</span><br>Automatisez votre expertise carbone.</div>
+        <div>🧠 <span class="font-semibold">Décisions éclairées</span><br>Comparez facilement l’empreinte de vos options stratégiques.</div>
+        <div>🧩 <span class="font-semibold">Intégration fluide</span><br>API pour connecter vos outils (ERP, CRM, appels d’offres…).</div>
+        <div>🛡 <span class="font-semibold">Hébergement & conformité</span><br>Données traitées et hébergées en France, RGPD compliant.</div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <hr class="my-10 border-gray-700" />
+
+    <!-- Audience Section -->
+    <section class="text-left text-gray-100">
+      <h2 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">À qui s’adresse Empreinte Plus ?</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>👨‍💼 <span class="font-semibold">Experts-comptables</span><br>Proposez un service carbone automatisé à vos clients.</div>
+        <div>🏢 <span class="font-semibold">Entreprises (PME & grands groupes)</span><br>Pilotez votre impact carbone, répondez aux obligations (CSRD, bilan GES…).</div>
+        <div>🧑‍💼 <span class="font-semibold">Consultants, acheteurs, RSE</span><br>Intégrez le carbone dans vos décisions et accompagnements.</div>
+        <div>🏛 <span class="font-semibold">Institutions et services publics</span><br>Évaluez l’impact carbone des offres lors d’appels d’offres.</div>
+        <div>🧠 <span class="font-semibold">Plateformes ESG</span><br>Ajoutez un moteur carbone intelligent à vos offres via API.</div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <hr class="my-10 border-gray-700" />
+
+    <!-- Example Card -->
+    <section class="mt-12 flex flex-col sm:flex-row gap-8 items-start justify-end">
+      <div class="sm:w-1/2 w-full bg-black text-gray-100 rounded-xl p-6 border border-gray-700 shadow-md">
+        <h3 class="text-lg font-bold mb-4">📦 Exemples de calculs carbone</h3>
+        <div class="space-y-4 text-sm">
+          <div>
+            <p><strong>“Billet aller-retour TER Paris Lyon”</strong></p>
+            <p>xx tCO₂e<br>x% incertitude<br>Transport ferroviaire</p>
+          </div>
+          <div>
+            <p><strong>« HP Probook Q4 * 5 »</strong></p>
+            <p>xx tCO₂e<br>x% incertitude<br>Transport maritime</p>
+          </div>
+          <div>
+            <p><strong>« Chaises réu * 4 (invoice 78339) »</strong></p>
+            <p>xx tCO₂e<br>x% incertitude<br>Mobilier & logistique</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="mt-12 text-sm text-gray-400">
       <p>© 2025 Empreinte Plus · Contact : contact@empreinteplus.com</p>
       <p class="mt-2">
