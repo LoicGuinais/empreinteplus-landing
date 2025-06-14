@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Empreinte Plus</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>🍃</text></svg>">
   <style>
@@ -37,6 +38,11 @@
        class="mt-8 px-8 py-3 bg-green-500 hover:bg-green-600 text-white text-lg font-semibold rounded-lg shadow transition fade-in delay-2">
       🚀 Accéder à l'application
     </a>
+  </section>
+
+  <!-- 🌐 Animated Network -->
+  <section class="my-20 flex justify-center fade-in">
+    <div id="network-animation" class="w-full max-w-md h-[300px]"></div>
   </section>
 
   <!-- MAIN CONTENT -->
@@ -111,7 +117,7 @@
 
   <!-- Scripts -->
   <script>
-    // Theme Toggle
+    // Theme toggle
     const toggle = document.getElementById("theme-toggle");
     const html = document.documentElement;
     const icon = document.getElementById("theme-icon");
@@ -123,7 +129,7 @@
       icon.textContent = isDark ? "🌙" : "☀️";
     });
 
-    // Cookie Banner
+    // Cookie banner
     const banner = document.getElementById('cookie-banner');
     const acceptBtn = document.getElementById('cookie-accept');
     if (!localStorage.getItem('cookiesAccepted')) {
@@ -132,6 +138,15 @@
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem('cookiesAccepted', 'true');
       banner.classList.add('hidden');
+    });
+
+    // Lottie animation
+    lottie.loadAnimation({
+      container: document.getElementById('network-animation'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets4.lottiefiles.com/packages/lf20_s3hvcjrx.json'
     });
   </script>
 </body>
