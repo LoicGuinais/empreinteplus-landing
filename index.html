@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +8,9 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>🍃</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-in { animation: fadeIn 1.2s ease-out forwards; opacity: 0; }
+    .fade-in { opacity: 0; animation: fadeIn 1.2s ease-out forwards; }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-REBGWCM1G6"></script>
@@ -21,92 +21,84 @@
   </script>
 </head>
 
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-100 transition-colors duration-500">
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
 
-  <!-- Theme Toggle -->
-  <div class="absolute top-5 right-5">
-    <button id="theme-toggle" class="text-xl text-yellow-400 dark:text-white hover:scale-110 transition">
-      <span id="theme-icon">🌙</span>
-    </button>
-  </div>
+  <!-- Sticky Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur bg-white/70 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700 px-6 py-3 flex justify-between items-center shadow-sm">
+    <span class="font-bold text-green-600 dark:text-green-400">🍃 Empreinte Plus</span>
+    <div class="space-x-4 text-sm font-medium">
+      <a href="#pourquoi" class="hover:text-green-500 transition">Pourquoi</a>
+      <a href="#pour-qui" class="hover:text-green-500 transition">Pour qui</a>
+      <a href="#exemples" class="hover:text-green-500 transition">Exemples</a>
+      <button id="theme-toggle" class="ml-4 text-lg">🌙</button>
+    </div>
+  </nav>
 
   <!-- Main Container -->
-  <div class="max-w-4xl mx-auto mt-28 p-10 rounded-2xl shadow-2xl fade-in bg-gray-800 transition-colors duration-500 text-center">
+  <div class="max-w-5xl mx-auto pt-32 px-6 pb-20 space-y-20">
 
-    <!-- Hero Section -->
-    <header class="mb-8">
-      <h1 class="text-4xl sm:text-5xl font-bold text-green-400 mb-3">Empreinte Plus</h1>
-      <p class="text-lg sm:text-xl text-gray-300">L'IA carbone, pensée pour la sécurité et la traçabilité</p>
-    </header>
-
-    <!-- CTA -->
-    <main>
+    <!-- Hero -->
+    <header class="text-center fade-in">
+      <h1 class="text-4xl sm:text-5xl font-bold text-green-600 dark:text-green-400 mb-4">Empreinte Plus</h1>
+      <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300">L'IA carbone, pensée pour la sécurité et la traçabilité</p>
       <a href="https://app.empreinteplus.com"
-         class="inline-block mt-6 px-7 py-3 rounded-lg text-lg font-semibold bg-green-500 hover:bg-green-600 text-white shadow-md hover:shadow-lg transition-all duration-200">
+         class="inline-block mt-6 px-8 py-3 rounded-lg text-lg font-semibold bg-green-500 hover:bg-green-600 text-white shadow transition-all duration-200">
         🚀 Accéder à l'application
       </a>
-    </main>
+    </header>
 
-    <!-- Pourquoi Section -->
-    <section class="mt-16 text-left text-gray-100">
-      <h2 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Pourquoi Empreinte Plus ?</h2>
-      <div class="grid gap-6 sm:grid-cols-2">
-        <div>⚡ <span class="font-semibold">Analyse à la demande</span><br>Lancez des calculs carbone instantanés, sans attendre un expert.</div>
-        <div>📊 <span class="font-semibold">Résultats traçables</span><br>Hypothèses, facteurs et incertitudes clairement documentés.</div>
-        <div>💰 <span class="font-semibold">Moins de coûts, plus d’impact</span><br>Automatisez votre expertise carbone.</div>
-        <div>🧠 <span class="font-semibold">Décisions éclairées</span><br>Comparez facilement l’empreinte de vos options stratégiques.</div>
-        <div>🧩 <span class="font-semibold">Intégration fluide</span><br>API pour connecter vos outils (ERP, CRM, appels d’offres…).</div>
-        <div>🛡 <span class="font-semibold">Hébergement & conformité</span><br>Données traitées et hébergées en France, RGPD compliant.</div>
+    <!-- Pourquoi Empreinte Plus -->
+    <section id="pourquoi" class="fade-in">
+      <h2 class="text-2xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">Pourquoi Empreinte Plus ?</h2>
+      <div class="grid gap-6 sm:grid-cols-2 text-base text-gray-800 dark:text-gray-100">
+        <div>⚡ <strong>Analyse à la demande</strong><br>Lancez des calculs carbone instantanés, sans attendre un expert.</div>
+        <div>📊 <strong>Résultats traçables</strong><br>Hypothèses, facteurs et incertitudes clairement documentés.</div>
+        <div>💰 <strong>Moins de coûts, plus d’impact</strong><br>Automatisez votre expertise carbone.</div>
+        <div>🧠 <strong>Décisions éclairées</strong><br>Comparez facilement l’empreinte de vos options stratégiques.</div>
+        <div>🧩 <strong>Intégration fluide</strong><br>API pour connecter vos outils (ERP, CRM, appels d’offres…).</div>
+        <div>🛡 <strong>Hébergement & conformité</strong><br>Données traitées et hébergées en France, RGPD compliant.</div>
       </div>
     </section>
 
-    <!-- Divider -->
-    <hr class="my-10 border-gray-700" />
-
-    <!-- Audience Section -->
-    <section class="text-left text-gray-100">
-      <h2 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">À qui s’adresse Empreinte Plus ?</h2>
-      <div class="grid gap-4 sm:grid-cols-2">
-        <div>👨‍💼 <span class="font-semibold">Experts-comptables</span><br>Proposez un service carbone automatisé à vos clients.</div>
-        <div>🏢 <span class="font-semibold">Entreprises (PME & grands groupes)</span><br>Pilotez votre impact carbone, répondez aux obligations (CSRD, bilan GES…).</div>
-        <div>🧑‍💼 <span class="font-semibold">Consultants, acheteurs, RSE</span><br>Intégrez le carbone dans vos décisions et accompagnements.</div>
-        <div>🏛 <span class="font-semibold">Institutions et services publics</span><br>Évaluez l’impact carbone des offres lors d’appels d’offres.</div>
-        <div>🧠 <span class="font-semibold">Plateformes ESG</span><br>Ajoutez un moteur carbone intelligent à vos offres via API.</div>
+    <!-- À qui s’adresse -->
+    <section id="pour-qui" class="fade-in">
+      <h2 class="text-2xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">À qui s’adresse Empreinte Plus ?</h2>
+      <div class="grid gap-4 sm:grid-cols-2 text-base">
+        <div>👨‍💼 <strong>Experts-comptables</strong><br>Proposez un service carbone automatisé à vos clients.</div>
+        <div>🏢 <strong>Entreprises (PME & grands groupes)</strong><br>Pilotez votre impact carbone, répondez aux obligations (CSRD, bilan GES…).</div>
+        <div>🧑‍💼 <strong>Consultants, acheteurs, RSE</strong><br>Intégrez le carbone dans vos décisions et accompagnements.</div>
+        <div>🏛 <strong>Institutions et services publics</strong><br>Évaluez l’impact carbone des offres lors d’appels d’offres.</div>
+        <div>🧠 <strong>Plateformes ESG</strong><br>Ajoutez un moteur carbone intelligent à vos offres via API.</div>
       </div>
     </section>
 
-    <!-- Divider -->
-    <hr class="my-10 border-gray-700" />
-
-    <!-- Example Card -->
-    <section class="mt-12 flex flex-col sm:flex-row gap-8 items-start justify-end">
-      <div class="sm:w-1/2 w-full bg-black text-gray-100 rounded-xl p-6 border border-gray-700 shadow-md">
-        <h3 class="text-lg font-bold mb-4">📦 Exemples de calculs carbone</h3>
-        <div class="space-y-4 text-sm">
-          <div>
-            <p><strong>“Billet aller-retour TER Paris Lyon”</strong></p>
-            <p>xx tCO₂e<br>x% incertitude<br>Transport ferroviaire</p>
-          </div>
-          <div>
-            <p><strong>« HP Probook Q4 * 5 »</strong></p>
-            <p>xx tCO₂e<br>x% incertitude<br>Transport maritime</p>
-          </div>
-          <div>
-            <p><strong>« Chaises réu * 4 (invoice 78339) »</strong></p>
-            <p>xx tCO₂e<br>x% incertitude<br>Mobilier & logistique</p>
-          </div>
+    <!-- Bloc Exemples -->
+    <section id="exemples" class="fade-in">
+      <h2 class="text-2xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">📦 Exemples de calculs carbone</h2>
+      <div class="bg-black text-gray-100 rounded-xl p-6 border border-gray-700 shadow-md space-y-6 text-sm">
+        <div>
+          <p><strong>“Billet aller-retour TER Paris Lyon”</strong></p>
+          <p>xx tCO₂e<br>x% incertitude<br>Transport ferroviaire</p>
+        </div>
+        <div>
+          <p><strong>« HP Probook Q4 * 5 »</strong></p>
+          <p>xx tCO₂e<br>x% incertitude<br>Transport maritime</p>
+        </div>
+        <div>
+          <p><strong>« Chaises réu * 4 (invoice 78339) »</strong></p>
+          <p>xx tCO₂e<br>x% incertitude<br>Mobilier & logistique</p>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="mt-12 text-sm text-gray-400">
+    <footer class="pt-10 text-center text-sm text-gray-500 dark:text-gray-400">
       <p>© 2025 Empreinte Plus · Contact : contact@empreinteplus.com</p>
       <p class="mt-2">
         <a href="https://www.linkedin.com/company/empreinteplus/" target="_blank"
-           class="inline-flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-all duration-200">
+           class="inline-flex items-center gap-2 hover:text-blue-600 transition">
           <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
-               alt="LinkedIn" class="w-5 h-5 invert dark:invert-0 transition-transform duration-200">
+               alt="LinkedIn" class="w-4 h-4 invert dark:invert-0">
           Suivez-nous sur LinkedIn
         </a>
       </p>
@@ -117,11 +109,12 @@
   <script>
     const toggle = document.getElementById("theme-toggle");
     const html = document.documentElement;
-    const icon = document.getElementById("theme-icon");
+    let isDark = false;
 
     toggle.addEventListener("click", () => {
-      html.classList.toggle("dark");
-      icon.textContent = html.classList.contains("dark") ? "🌙" : "☀️";
+      isDark = !isDark;
+      html.classList.toggle("dark", isDark);
+      toggle.textContent = isDark ? "🌙" : "☀️";
     });
   </script>
 </body>
