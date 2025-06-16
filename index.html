@@ -4,16 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Empreinte Plus</title>
-  <!-- Google Analytics -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REBGWCM1G6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-REBGWCM1G6');
-</script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
@@ -115,16 +105,38 @@
     <button id="cookie-accept" class="bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded transition">Ok</button>
   </div>
 
-  <!-- Cookie Script -->
+  <!-- 🧠 Cookie Consent + Analytics Script -->
   <script>
     const banner = document.getElementById('cookie-banner');
     const acceptBtn = document.getElementById('cookie-accept');
+    const analyticsID = 'G-REBGWCM1G6'; // Your GA4 ID
+
+    function loadAnalytics() {
+      const s1 = document.createElement('script');
+      s1.async = true;
+      s1.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsID}`;
+      document.head.appendChild(s1);
+
+      const s2 = document.createElement('script');
+      s2.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${analyticsID}', { anonymize_ip: true });
+      `;
+      document.head.appendChild(s2);
+    }
+
     if (!localStorage.getItem('cookiesAccepted')) {
       banner.classList.remove('hidden');
+    } else if (localStorage.getItem('cookiesAccepted') === 'true') {
+      loadAnalytics();
     }
+
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem('cookiesAccepted', 'true');
       banner.classList.add('hidden');
+      loadAnalytics();
     });
   </script>
 </body>
