@@ -84,6 +84,11 @@
 
     <!-- Footer -->
     <footer class="pt-10 text-center text-sm text-gray-400">
+      <p class="mt-2">
+  <a href="#" onclick="document.getElementById('cookie-banner').classList.remove('hidden'); return false;"
+     class="underline hover:text-green-400">Gérer mes cookies</a>
+</p>
+
       <p>© 2025 Empreinte Plus · Contact : contact@empreinteplus.com</p>
       <p class="mt-2">
         <a href="https://www.linkedin.com/company/empreinteplus/" target="_blank"
@@ -97,47 +102,58 @@
   </main>
 
   <!-- 🍪 Cookie Banner -->
-  <div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-gray-900 text-white text-sm px-4 py-3 flex flex-col sm:flex-row items-center justify-between z-50 shadow-lg hidden">
-    <p class="mb-2 sm:mb-0">
-      🍪 Ce site utilise des cookies à des fins de mesure d’audience (Google Analytics).
-      <a href="/politique-confidentialite.html" target="_blank" class="underline ml-1 text-green-400 hover:text-green-300">Politique de confidentialité</a>
-    </p>
+<div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-gray-900 text-white text-sm px-4 py-3 flex flex-col sm:flex-row items-center justify-between z-50 shadow-lg hidden">
+  <p class="mb-2 sm:mb-0">
+    🍪 Ce site utilise des cookies à des fins de mesure d’audience (Google Analytics).
+    <a href="/politique-confidentialite.html" target="_blank" class="underline ml-1 text-green-400 hover:text-green-300">Politique de confidentialité</a>
+  </p>
+  <div class="flex space-x-2">
     <button id="cookie-accept" class="bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded transition">Ok</button>
+    <button id="cookie-reject" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-1 rounded transition">Refuser</button>
   </div>
+</div>
 
-  <!-- 🧠 Cookie Consent + Analytics Script -->
-  <script>
-    const banner = document.getElementById('cookie-banner');
-    const acceptBtn = document.getElementById('cookie-accept');
-    const analyticsID = 'G-REBGWCM1G6'; // Your GA4 ID
+ <!-- 🧠 Cookie Consent + Analytics Script -->
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const rejectBtn = document.getElementById('cookie-reject');
+  const analyticsID = 'G-REBGWCM1G6';
 
-    function loadAnalytics() {
-      const s1 = document.createElement('script');
-      s1.async = true;
-      s1.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsID}`;
-      document.head.appendChild(s1);
+  function loadAnalytics() {
+    if (window.gtag) return; // prevent double loading
+    const s1 = document.createElement('script');
+    s1.async = true;
+    s1.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsID}`;
+    document.head.appendChild(s1);
 
-      const s2 = document.createElement('script');
-      s2.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${analyticsID}', { anonymize_ip: true });
-      `;
-      document.head.appendChild(s2);
-    }
+    const s2 = document.createElement('script');
+    s2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${analyticsID}', { anonymize_ip: true });
+    `;
+    document.head.appendChild(s2);
+  }
 
-    if (!localStorage.getItem('cookiesAccepted')) {
-      banner.classList.remove('hidden');
-    } else if (localStorage.getItem('cookiesAccepted') === 'true') {
-      loadAnalytics();
-    }
+  const consent = localStorage.getItem('cookie_consent');
+  if (!consent) {
+    banner.classList.remove('hidden');
+  } else if (consent === 'accepted') {
+    loadAnalytics();
+  }
 
-    acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('cookiesAccepted', 'true');
-      banner.classList.add('hidden');
-      loadAnalytics();
-    });
-  </script>
+  acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('cookie_consent', 'accepted');
+    banner.classList.add('hidden');
+    loadAnalytics();
+  });
+
+  rejectBtn.addEventListener('click', () => {
+    localStorage.setItem('cookie_consent', 'rejected');
+    banner.classList.add('hidden');
+  });
+</script>
 </body>
 </html>
