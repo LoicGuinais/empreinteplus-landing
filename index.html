@@ -31,12 +31,24 @@
 
   <!-- ✅ Scroll + Fade-In -->
   <style>
-    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-in { opacity: 0; animation: fadeIn 1.2s ease-out forwards; }
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.4s; }
+  body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in { opacity: 0; animation: fadeIn 1.2s ease-out forwards; }
+  .delay-1 { animation-delay: 0.2s; }
+  .delay-2 { animation-delay: 0.4s; }
+
+  /* 🖥 Hide scrollbar on desktop */
+  @media (min-width: 640px) {
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;  /* IE/Edge */
+      scrollbar-width: none;     /* Firefox */
+    }
+  }
   </style>
+
 
   <!-- ✅ Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -103,7 +115,7 @@
     <!-- Exemples scrollable cards -->
     <section id="exemples" class="fade-in">
       <h2 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">📦 Exemples de calculs carbone</h2>
-      <div class="overflow-x-auto scroll-smooth">
+      <div class="overflow-x-auto scroll-smooth hide-scrollbar">
         <div class="flex space-x-4 pb-2 snap-x snap-mandatory">
           <div class="min-w-[250px] bg-black text-gray-100 rounded-xl p-4 border border-gray-700 shadow-md flex-shrink-0 snap-center">
             <p class="font-semibold mb-2">“Billet aller-retour TER Paris Lyon”</p>
