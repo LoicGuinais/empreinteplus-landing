@@ -1,4 +1,45 @@
-<section class="max-w-3xl mx-auto px-6 py-16 text-gray-100 space-y-8">
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comment automatiser votre bilan carbone | Empreinte Plus</title>
+  <meta name="description" content="Découvrez comment transformer vos journaux comptables en bilan carbone automatisé, traçable et conforme (CSRD, bilan GES).">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+
+<!-- 🔗 Navbar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-80 backdrop-blur text-white border-b border-gray-800">
+  <div class="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
+    <a href="/" class="text-xl font-bold">Empreinte Plus</a>
+    <button id="menu-toggle" class="sm:hidden text-white focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    <nav class="hidden sm:flex space-x-6 text-sm font-medium">
+      <a href="/" class="hover:text-green-400">Accueil</a>
+      <a href="/ressources.html" class="hover:text-green-400">Ressources</a>
+      <a href="https://app.empreinteplus.com" class="hover:text-green-400">Lancer une analyse</a>
+    </nav>
+  </div>
+  <div id="mobile-menu" class="sm:hidden hidden px-6 pb-4">
+    <nav class="flex flex-col space-y-2 text-sm font-medium">
+      <a href="/" class="hover:text-green-400">Accueil</a>
+      <a href="/ressources.html" class="hover:text-green-400">Ressources</a>
+      <a href="https://app.empreinteplus.com" class="hover:text-green-400">Lancer une analyse</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 📝 Article -->
+<main class="pt-28 px-6 max-w-3xl mx-auto space-y-8 leading-relaxed">
   <article>
     <header class="mb-8">
       <h1 class="text-3xl sm:text-4xl font-bold mb-2">Comment automatiser votre bilan carbone à partir de votre comptabilité ?</h1>
@@ -60,4 +101,16 @@
       </a>
     </div>
   </article>
-</section>
+</main>
+
+<!-- 🍔 Burger toggle script -->
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+</html>
