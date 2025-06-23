@@ -7,10 +7,22 @@
   <meta name="description" content="Guides pratiques, articles et exemples d'analyse carbone automatisée via la comptabilité.">
   <link rel="icon" href="/favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
-<body class="bg-black text-white font-sans leading-relaxed">
-  <main class="max-w-4xl mx-auto px-6 py-16">
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+
+  <!-- 🔗 Navbar injectée dynamiquement -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- 📚 Contenu -->
+  <main class="max-w-4xl mx-auto px-6 pt-28 pb-16">
     <h1 class="text-3xl sm:text-4xl font-bold mb-8">📚 Ressources</h1>
 
     <article class="mb-12 border-b border-gray-700 pb-8">
@@ -20,7 +32,22 @@
       <a href="/article-bilan-carbone-comptabilite.html" class="text-green-400 hover:underline font-semibold">Lire l’article →</a>
     </article>
 
-    <!-- Tu pourras ajouter d’autres articles ici -->
+    <!-- Autres articles à venir -->
   </main>
+
+  <!-- 🧠 Script : navbar + menu burger -->
+  <script>
+    fetch("/components/navbar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("navbar-placeholder").innerHTML = html;
+
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        toggle?.addEventListener('click', () => {
+          menu?.classList.toggle('hidden');
+        });
+      });
+  </script>
 </body>
 </html>
