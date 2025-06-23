@@ -1,4 +1,6 @@
+# robots.txt for Empreinte Plus
+
 User-agent: *
-Allow: /
+Disallow:
 
 Sitemap: https://empreinteplus.com/sitemap.xml
