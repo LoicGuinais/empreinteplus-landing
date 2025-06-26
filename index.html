@@ -88,19 +88,62 @@
   <div id="navbar-placeholder"></div>
 
 
-  <!-- HERO -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-6">
+<section class="h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
+  <!-- 🌍 Animated logo orbiting in background -->
+  <div class="absolute inset-0 flex items-center justify-center opacity-10 z-0 pointer-events-none">
+    <svg viewBox="0 0 300 300" class="w-[80vmin] h-[80vmin]">
+      <path d="M80.0,50.0 h140 a30,30 0 0 1 30,30 v140 a30,30 0 0 1 -30,30 h-140 a30,30 0 0 1 -30,-30 v-140 a30,30 0 0 1 30,-30 z"
+        fill="none" id="path1" stroke="white" stroke-width="2" />
+      <path d="M92.5,62.5 h90 a30,30 0 0 1 30,30 v90 a30,30 0 0 1 -30,30 h-90 a30,30 0 0 1 -30,-30 v-90 a30,30 0 0 1 30,-30 z"
+        fill="none" id="path2" stroke="white" stroke-width="2" />
+      <path d="M105.0,75.0 h40 a30,30 0 0 1 30,30 v40 a30,30 0 0 1 -30,30 h-40 a30,30 0 0 1 -30,-30 v-40 a30,30 0 0 1 30,-30 z"
+        fill="none" id="path3" stroke="white" stroke-width="2" />
+    </svg>
+  </div>
+
+  <!-- 🟢 Animated dots -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const svg = document.querySelector("svg");
+      const paths = svg.querySelectorAll("path");
+
+      paths.forEach((path, index) => {
+        for (let i = 0; i < 3; i++) {
+          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circle.setAttribute("r", 4);
+          circle.setAttribute("fill", "white");
+          circle.setAttribute("opacity", "0.8");
+
+          const animateMotion = document.createElementNS("http://www.w3.org/2000/svg", "animateMotion");
+          animateMotion.setAttribute("dur", "5s");
+          animateMotion.setAttribute("repeatCount", "indefinite");
+          animateMotion.setAttribute("begin", `${(i * 1 + index * 0.5).toFixed(1)}s`);
+
+          const mpath = document.createElementNS("http://www.w3.org/2000/svg", "mpath");
+          mpath.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", `#${path.id}`);
+
+          animateMotion.appendChild(mpath);
+          circle.appendChild(animateMotion);
+          svg.appendChild(circle);
+        }
+      });
+    });
+  </script>
+
+  <!-- 🧠 Hero content (text + CTA) -->
+  <div class="z-10">
     <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 fade-in">
       Le bilan carbone automatisé à partir de votre comptabilité.
     </h1>
-
-    <p class="text-lg sm:text-xl text-gray-300 max-w-xl fade-in delay-1">
+    <p class="text-lg sm:text-xl text-gray-300 max-w-xl mx-auto fade-in delay-1">
       Empreinte Plus vous aide à analyser et documenter votre impact carbone, automatiquement.
     </p>
     <a href="/chat.html"
-      class="mt-8 px-8 py-3 bg-green-500 hover:bg-green-600 text-white text-lg font-semibold rounded-lg shadow transition fade-in delay-2">
+      class="mt-8 inline-block px-8 py-3 bg-green-500 hover:bg-green-600 text-white text-lg font-semibold rounded-lg shadow transition fade-in delay-2">
       🤖 Tester notre IA carbone
     </a>
+  </div>
+</section>
 
 
   </section>
