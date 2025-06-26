@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark">
+<html lang="fr" class="dark bg-black">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,6 +49,11 @@
       scrollbar-width: none;     /* Firefox */
     }
   }
+    html, body {
+    background-color: #000;
+    color: #fff;
+  }
+
   </style>
 
 
@@ -67,7 +73,7 @@
 </script>
 
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white"></body>
+<body class="min-h-screen bg-black text-white bg-gradient-to-br from-gray-900 via-gray-800 to-black"></body>
 <script>
   fetch('/components/navbar.html')
     .then(res => res.text())
