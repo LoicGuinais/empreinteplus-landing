@@ -13,6 +13,10 @@
 </head>
 <body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
 
+  <!-- 🔗 Navbar will be injected here -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- 💬 Chat main content -->
   <main class="max-w-2xl mx-auto px-4 pt-32">
     <h1 class="text-3xl font-bold mb-6 text-center">💬 Chat Carbone</h1>
 
@@ -24,6 +28,23 @@
     </form>
   </main>
 
+  <!-- 🍔 Load and bind navbar -->
+  <script>
+    fetch('/components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-placeholder').innerHTML = html;
+
+        // Re-bind burger menu after injection
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        toggle?.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      });
+  </script>
+
+  <!-- 🧠 Chat logic -->
   <script>
     const chat = document.getElementById('chat');
     const form = document.getElementById('chat-form');
@@ -47,7 +68,7 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'x-empreinteplus-key': 'test'  // Replace with real key if needed
+            'x-empreinteplus-key': 'test'  // replace with real key if needed
           },
           body: JSON.stringify({ description: message })
         });
@@ -65,5 +86,6 @@
       }
     });
   </script>
+
 </body>
 </html>
