@@ -67,6 +67,7 @@
 </script>
 
 </head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white"></body>
 <script>
   fetch('/components/navbar.html')
     .then(res => res.text())
@@ -82,10 +83,10 @@
     });
 </script>
 
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+
 
 <!-- 🔗 Navbar injectée dynamiquement -->
-  <div id="navbar-placeholder"></div>
+  <div id="navbar-placeholder" class="z-10"></div>
 
 
 <section class="h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
