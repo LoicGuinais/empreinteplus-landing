@@ -11,21 +11,7 @@
     body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
   </style>
 </head>
-<script>
-  const examples = [
-    "billet TER aller-retour Marseille Lyon",
-    "acheter 500 grammes de fraises",
-    "prestation d'auditeurs financiers",
-    "achat de 10 batteries AAA",
-    "voyage en avion Paris → Bordeaux",
-    "hébergement 2 nuits à Bordeaux",
-    "achat de 200g de chocolat"
-  ];
 
-  const randomExample = examples[Math.floor(Math.random() * examples.length)];
-  const inputDesc = document.getElementById('user-description');
-  if (inputDesc) inputDesc.placeholder = `Ex. ${randomExample}`;
-</script>
 
 <body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
 
@@ -124,6 +110,18 @@
       chat.appendChild(errMsg);
     }
   });
+  const inputDesc = document.getElementById('user-description');
+const examples = [
+  "billet TER aller-retour Marseille Lyon",
+  "acheter 500 grammes de fraises",
+  "prestation d'auditeurs financiers",
+  "achat de 10 batteries AAA",
+  "voyage en avion Paris → Bordeaux",
+  "hébergement 2 nuits à Bordeaux",
+  "achat de 200g de chocolat"
+];
+inputDesc.placeholder = `Ex. ${examples[Math.floor(Math.random() * examples.length)]}`;
+
 </script>
 
 
