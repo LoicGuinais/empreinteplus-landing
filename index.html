@@ -74,20 +74,7 @@
 
 </head>
 <body class="min-h-screen bg-black text-white bg-gradient-to-br from-gray-900 via-gray-800 to-black"></body>
-<script>
-  fetch('/components/navbar.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('navbar-placeholder').innerHTML = html;
 
-      // Re-bind burger toggle after injection
-      const toggle = document.getElementById('menu-toggle');
-      const menu = document.getElementById('mobile-menu');
-      toggle?.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-      });
-    });
-</script>
 
 
 
@@ -293,6 +280,35 @@
     menu.classList.toggle('hidden');
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch('/components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        const placeholder = document.getElementById('navbar-placeholder');
+        placeholder.innerHTML = html;
 
+        // Wait a tick to ensure elements are in DOM
+        setTimeout(() => {
+          const toggle = document.getElementById('menu-toggle');
+          const menu = document.getElementById('mobile-menu');
+          if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+              menu.classList.toggle('hidden');
+            });
+          }
+
+          // Fix: force full reload when logo is clicked
+          const logo = document.querySelector('a[href="/"]');
+          if (logo) {
+            logo.addEventListener('click', (e) => {
+              e.preventDefault();
+              window.location.href = '/';
+            });
+          }
+        }, 0);
+      });
+  });
+</script>
 </body>
 </html>
