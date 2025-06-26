@@ -67,6 +67,21 @@
 </script>
 
 </head>
+<script>
+  fetch('/components/navbar.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('navbar-placeholder').innerHTML = html;
+
+      // Re-bind burger toggle after injection
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      toggle?.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    });
+</script>
+
 <body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
 
 <!-- 🔗 Navbar injectée dynamiquement -->
