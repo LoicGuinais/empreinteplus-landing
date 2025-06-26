@@ -79,8 +79,29 @@
       const data = await res.json();
 
       const aiMsg = document.createElement('div');
-      aiMsg.innerHTML = `<strong>Empreinte IA :</strong> ${data.predicted_category || JSON.stringify(data)}`;
-      chat.appendChild(aiMsg);
+
+        if (data.final_category) {
+        const distance = data.distance_km?.toFixed(1);
+        const emission = data.final_emission?.toFixed(1);
+        const ef_value = data.ef_value?.toFixed(3);
+        const ef_unit = data.ef_unit || '';
+
+        aiMsg.innerHTML = `
+            <div class="bg-gray-800 border border-gray-700 rounded p-3 space-y-1">
+            <strong>Catégorie</strong> : ${data.final_category}</p>
+            ${data.origin && data.destination ? `<p>📍 <strong>Trajet</strong> : ${data.origin} → ${data.destination} (${distance} km)</p>` : ''}
+            <strong>Émissions</strong> : ${emission} kgCO₂e</p>
+            <strong>Source</strong> : ${data.source}</p>
+            ${ef_value ? `<p>📐 <strong>Facteur</strong> : ${ef_value} ${ef_unit}</p>` : ''}
+            </div>
+        `;
+        } else {
+        aiMsg.innerHTML = `<strong>Empreinte IA :</strong> ${JSON.stringify(data)}`;
+        }
+
+        chat.appendChild(aiMsg);
+        chat.scrollTop = chat.scrollHeight;
+
       chat.scrollTop = chat.scrollHeight;
     } catch (err) {
       const errMsg = document.createElement('div');
