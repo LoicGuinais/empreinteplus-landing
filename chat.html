@@ -118,7 +118,8 @@
       chat.appendChild(errMsg);
     }
   });
-  const inputDesc = document.getElementById('user-description');
+
+const inputDesc = document.getElementById('user-description');
 const examples = [
   "billet TER aller-retour Marseille Lyon",
   "acheter 500 grammes de fraises",
@@ -128,9 +129,31 @@ const examples = [
   "hébergement 2 nuits à Bordeaux",
   "achat de 200g de chocolat"
 ];
-inputDesc.placeholder = `Ex. ${examples[Math.floor(Math.random() * examples.length)]}`;
 
+let exampleIndex = 0;
+
+function rotatePlaceholder() {
+  const example = examples[exampleIndex];
+  let i = 0;
+  inputDesc.placeholder = 'Ex.';
+
+  const typing = setInterval(() => {
+    if (i <= example.length) {
+      inputDesc.placeholder = `Ex. ${example.substring(0, i++)}`;
+    } else {
+      clearInterval(typing);
+      setTimeout(() => {
+        inputDesc.placeholder = ''; // blank between transitions
+        exampleIndex = (exampleIndex + 1) % examples.length;
+        setTimeout(rotatePlaceholder, 300); // short pause before next starts
+      }, 1500); // pause on full prompt
+    }
+  }, 60);
+}
+
+rotatePlaceholder();
 </script>
+
 
 
 </body>
